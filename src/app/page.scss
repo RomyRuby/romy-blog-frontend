@@ -112,168 +112,10 @@
             background-image: url("../../static/img/avatar.jpg");
           }
         }
-        .main-introduce-right-bubble-1 {
-          position: absolute;
-          z-index: 100;
-          left: -120px;
-          top: -28px;
-          padding: 0;
-          .main-introduce-right-bubble-1-player {
-            display: flex;
-            height: 100%;
-            justify-content: space-around;
-            align-items: center;
-            color: var(--theme-sub-color);
-            margin-top: 2px;
-
-            .main-introduce-right-bubble-1-player-icon {
-              cursor: pointer;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              &:hover {
-                transition: 0.4s;
-
-                transform: scale(1.3);
-              }
-            }
-          }
-        }
-        .main-introduce-right-bubble-2 {
-          position: absolute;
-          z-index: 101;
-          left: -110px;
-          top: -49px;
-          padding: 0 16px;
-          display: flex;
-          align-items: center;
-          overflow: hidden;
-          // background: linear-gradient(45deg, #bcb7ff, #b6dcff);
-
-          .main-introduce-right-bubble-2-wrap {
-            width: 100%;
-            animation: auto-scroll-wrap 12s infinite linear;
-          }
-
-          .main-introduce-right-bubble-2-content {
-            float: left;
-            white-space: nowrap;
-            min-width: 100%;
-            animation: auto-scroll-content 12s infinite linear;
-          }
-
-          @keyframes auto-scroll-wrap {
-            0%,
-            30% {
-              transform: translateX(0);
-            }
-            50%,
-            70% {
-              transform: translateX(100%);
-            }
-            90%,
-            100% {
-              transform: translateX(0);
-            }
-          }
-
-          @keyframes auto-scroll-content {
-            0%,
-            30% {
-              transform: translateX(0);
-            }
-            50%,
-            70% {
-              transform: translateX(-100%);
-            }
-            90%,
-            100% {
-              transform: translateX(0);
-            }
-          }
-        }
-        .main-introduce-right-bubble-3-container {
-          cursor: pointer;
-          position: absolute;
-          z-index: 100;
-          left: -120px;
-          top: 42px;
-          font-size: 18px;
-          font-weight: 500;
-          line-height: 50px;
-          text-align: center;
-          overflow: hidden;
-          .main-introduce-right-bubble-3 {
-            padding: 0;
-            .main-introduce-right-bubble-3-content {
-              span {
-                color: var(--theme-white-color);
-                opacity: 0.8;
-                margin-left: 8px;
-              }
-            }
-            &:hover {
-              &::after {
-                content: "";
-                position: absolute;
-                height: 100%;
-                inset: 20%;
-                top: 0;
-                background: linear-gradient(
-                  45deg,
-                  rgba(255, 255, 255, 0) 42%,
-                  rgba(255, 255, 255, 0.1),
-                  rgba(255, 255, 255, 0) 58%
-                );
-                animation: shark-wrap 2s infinite;
-                transform: translateX(-100%);
-              }
-              @keyframes shark-wrap {
-                to {
-                  transform: translateX(100%);
-                }
-              }
-            }
-          }
-        }
-
-        .main-introduce-right-bubble-4 {
-          position: absolute;
-          z-index: 100;
-          left: 8px;
-          bottom: 26px;
-          font-size: 12px;
-          line-height: 25px;
-          color: var(--font-sub-color);
-          padding: 0;
-          text-align: center;
-        }
-        .main-introduce-right-bubble-5 {
-          position: absolute;
-          z-index: 100;
-          right: -140px;
-          top: -60px;
-          padding: 16px;
-
-          p {
-            line-height: 1.8; /* 调整这个值来控制行与行之间的距离 */
-            background-color: var(
-              --theme-sub-color,
-              0.5
-            ); /* 设置你想要的背景颜色 */
-            display: inline-block; /* 确保背景只应用于文本区域而非整个行宽 */
-            padding: 0px 8px; /* 根据需要调整，为背景留出一些空间 */
-            border-radius: 8px;
-            margin-bottom: 8px;
-          }
-        }
       }
     }
     .main-ai {
-      // &:hover {
-      //   transform: scale(1.2);
-      // }
-      .main-introduce-right-bubble-6 {
+      .main-ai-bubble {
         cursor: pointer;
         position: fixed;
         z-index: 100;
@@ -302,7 +144,7 @@
             }
           }
         }
-        .main-introduce-right-bubble-6-content {
+        .main-ai-bubble-content {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -310,7 +152,7 @@
           position: relative;
           height: 100%;
 
-          .main-introduce-right-bubble-6-content-avatar {
+          .main-ai-bubble-content-avatar {
             position: relative;
             img {
               position: relative;
@@ -322,7 +164,7 @@
               margin: 0 auto;
             }
 
-            .main-introduce-right-bubble-6-content-avatar-lianyi-1 {
+            .main-ai-bubble-content-avatar-lianyi-1 {
               position: absolute;
               top: 0;
               content: "";
@@ -337,7 +179,7 @@
               );
               animation: lianyi-1 2s infinite;
             }
-            .main-introduce-right-bubble-6-content-avatar-lianyi-2 {
+            .main-ai-bubble-content-avatar-lianyi-2 {
               position: absolute;
               top: 0;
               content: "";
@@ -397,10 +239,10 @@
             }
           }
 
-          .main-introduce-right-bubble-6-content-name {
+          .main-ai-bubble-content-name {
             margin-top: 4px;
           }
-          .main-introduce-right-bubble-6-content-description {
+          .main-ai-bubble-content-description {
             font-size: 12px;
             text-align: center;
             margin-top: 8px;

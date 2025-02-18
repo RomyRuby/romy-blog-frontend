@@ -223,85 +223,8 @@ const Home = () => {
             {MainIntroduceLeft}
             {/* 右边的大头像 */}
             <div className="main-introduce-right">
-              {/* <Bubble
-                width={220}
-                height={50}
-                borderRadius={[28]}
-                bubbleClass="main-introduce-right-bubble-1 animate__animated animate__fadeInDown animate__delay-1s"
-                slot={
-                  <div className="main-introduce-right-bubble-1-player">
-                    <audio src=""></audio>
-                    <div className="main-introduce-right-bubble-1-player-icon">
-                      <Icon name="last" />
-                    </div>
-                    <div
-                      className="main-introduce-right-bubble-1-player-icon"
-                      onClick={handleClickAudioPlay}
-                    >
-                      <Icon name={isAudioPlay ? "pause" : "play"} size={26} />
-                    </div>
-                    <div className="main-introduce-right-bubble-1-player-icon">
-                      <Icon name="next" />
-                    </div>
-                  </div>
-                }
-              /> */}
-              {/* <Bubble
-                width={120}
-                height={30}
-                borderRadius={[16]}
-                backgroundColor="var(--theme-sub-color)"
-                bubbleClass="main-introduce-right-bubble-2 animate__animated animate__fadeInDown animate__delay-1s"
-                slot={
-                  <div className="main-introduce-right-bubble-2-wrap">
-                    <div className="main-introduce-right-bubble-2-content">
-                      蒲公英的約定 - Piano Echoes
-                    </div>
-                  </div>
-                }
-              /> */}
-              {/* 
-              <div
-                className="main-introduce-right-bubble-3-container animate__animated animate__fadeInDown animate__delay-2s"
-                onClick={scrollToArticle}
-              >
-                <Bubble
-                  width={220}
-                  height={50}
-                  borderRadius={[28]}
-                  backgroundColor="var(--theme-color)"
-                  bubbleClass="main-introduce-right-bubble-3"
-                  slot={
-                    <div className="main-introduce-right-bubble-3-content ">
-                      近期笔记<span> ▶ </span>
-                    </div>
-                  }
-                />
-              </div> */}
-
-              {/* <Bubble
-                width={220}
-                borderRadius={[25, 25, 25, 2]}
-                backgroundColor="var(--theme-sub-color)"
-                bubbleClass="main-introduce-right-bubble-5 animate__animated animate__fadeInUp animate__delay-2s"
-                slot={
-                  <>
-                    <p>@ AI-Romi</p>
-                    <div>擅长前端问题，很高兴见到你</div>
-                  </>
-                }
-              /> */}
-
               <div className="main-introduce-right-img-wrap animate__animated animate__lightSpeedInRight">
-                <div className="main-introduce-right-img"></div>
-                <Bubble
-                  width={110}
-                  height={25}
-                  borderRadius={[13]}
-                  backgroundColor="var(--theme-sub-color)"
-                  bubbleClass="main-introduce-right-bubble-4 animate__animated animate__fadeInUp "
-                  slot={<span>@Romy Zhang</span>}
-                />
+                <div className="main-introduce-right-img"></div>x
               </div>
             </div>
           </div>
@@ -311,37 +234,21 @@ const Home = () => {
               width={200}
               borderRadius={[25, 25, 3, 25]}
               backgroundColor="var(--theme-sub-color)"
-              bubbleClass="main-introduce-right-bubble-6 animate__animated animate__fadeInUp animate__delay-1s"
+              bubbleClass="main-ai-bubble animate__animated animate__fadeInUp animate__delay-1s"
               slot={
-                <div className="main-introduce-right-bubble-6-content">
-                  <div className="main-introduce-right-bubble-6-content-avatar">
+                <div className="main-ai-bubble-content">
+                  <div className="main-ai-bubble-content-avatar">
                     <img src="/static/img/AI.jpg" alt="ai avatar" />
-                    <div className="main-introduce-right-bubble-6-content-avatar-lianyi-1"></div>
-                    <div className="main-introduce-right-bubble-6-content-avatar-lianyi-2"></div>
+                    <div className="main-ai-bubble-content-avatar-lianyi-1"></div>
+                    <div className="main-ai-bubble-content-avatar-lianyi-2"></div>
                   </div>
 
-                  <div className="main-introduce-right-bubble-6-content-name">
+                  <div className="main-ai-bubble-content-name">
                     我是 <span>AI Romi</span>,
                   </div>
-                  <div className="main-introduce-right-bubble-6-content-description">
+                  <div className="main-ai-bubble-content-description">
                     擅长前端问题，点击进入聊天！
                   </div>
-                  {/* <div
-                    className="main-introduce-right-bubble-7-container"
-                  >
-                    <Bubble
-                      width={80}
-                      height={35}
-                      borderRadius={[25]}
-                      backgroundColor="var(--theme-color)"
-                      slot={
-                        <div>
-                          Chat<span> ▶ </span>
-                        </div>
-                      }
-                      bubbleClass="main-introduce-right-bubble-7"
-                    />
-                  </div> */}
                 </div>
               }
             />
