@@ -22,6 +22,7 @@ const Home = () => {
   const [isCardOpen, setIsCardOpen] = useState(false);
   const [articleList, setArticleList] = useState([]);
   const [cardType, setCardType] = useState("");
+  const [isAudioPlay, setIsAudioPlay] = useState(false);
   const mainArticleRef = useRef<null | HTMLDivElement>(null);
   const mainHomeRef = useRef<null | HTMLDivElement>(null);
   const router = useRouter();
@@ -210,6 +211,10 @@ const Home = () => {
     return <div className="wechat-img"></div>;
   };
 
+  const handleClickAudioPlay = () => {
+    setIsAudioPlay(!isAudioPlay);
+  };
+
   return (
     <>
       <div className="main">
@@ -224,6 +229,23 @@ const Home = () => {
                 height={50}
                 borderRadius={[28]}
                 bubbleClass="main-introduce-right-bubble-1 animate__animated animate__fadeInDown animate__delay-1s"
+                slot={
+                  <div className="main-introduce-right-bubble-1-player">
+                    <audio src=""></audio>
+                    <div className="main-introduce-right-bubble-1-player-icon">
+                      <Icon name="last" />
+                    </div>
+                    <div
+                      className="main-introduce-right-bubble-1-player-icon"
+                      onClick={handleClickAudioPlay}
+                    >
+                      <Icon name={isAudioPlay ? "play" : "pause"} size={26} />
+                    </div>
+                    <div className="main-introduce-right-bubble-1-player-icon">
+                      <Icon name="next" />
+                    </div>
+                  </div>
+                }
               />
               <Bubble
                 width={120}
@@ -231,6 +253,13 @@ const Home = () => {
                 borderRadius={[16]}
                 backgroundColor="var(--theme-sub-color)"
                 bubbleClass="main-introduce-right-bubble-2 animate__animated animate__fadeInDown animate__delay-1s"
+                slot={
+                  <div className="main-introduce-right-bubble-2-wrap">
+                    <div className="main-introduce-right-bubble-2-content">
+                      蒲公英的約定 - Piano Echoes
+                    </div>
+                  </div>
+                }
               />
 
               <Bubble
@@ -241,10 +270,11 @@ const Home = () => {
                 bubbleClass="main-introduce-right-bubble-3 animate__animated animate__fadeInDown animate__delay-2s"
                 slot={
                   <div className="main-introduce-right-bubble-3-content ">
-                    Study Notes<span> ▶ </span>
+                    近期笔记<span> ▶ </span>
                   </div>
                 }
               />
+
               <Bubble
                 width={120}
                 height={25}
@@ -291,7 +321,7 @@ const Home = () => {
                       backgroundColor="var(--theme-color)"
                       slot={
                         <div onClick={showModal}>
-                          Start<span> ▶ </span>
+                          开始对话<span> ▶ </span>
                         </div>
                       }
                       bubbleClass="main-introduce-right-bubble-7"
