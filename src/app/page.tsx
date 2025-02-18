@@ -12,8 +12,7 @@ import Link from "next/link";
 import moment from "moment";
 import "moment/locale/zh-cn";
 import "./page.scss";
-import Signature from "@/components/roro-ui/signature";
-import Image from "next/image";
+import { MouseEventHandler } from "react";
 moment.locale("zh-cn");
 
 const Home = () => {
@@ -22,7 +21,7 @@ const Home = () => {
   const [isCardOpen, setIsCardOpen] = useState(false);
   const [articleList, setArticleList] = useState([]);
   const [cardType, setCardType] = useState("");
-  const [isAudioPlay, setIsAudioPlay] = useState(false);
+  const [isAudioPlay, setIsAudioPlay] = useState(true);
   const mainArticleRef = useRef<null | HTMLDivElement>(null);
   const mainHomeRef = useRef<null | HTMLDivElement>(null);
   const router = useRouter();
@@ -224,7 +223,7 @@ const Home = () => {
             {MainIntroduceLeft}
             {/* 右边的大头像 */}
             <div className="main-introduce-right">
-              <Bubble
+              {/* <Bubble
                 width={220}
                 height={50}
                 borderRadius={[28]}
@@ -239,15 +238,15 @@ const Home = () => {
                       className="main-introduce-right-bubble-1-player-icon"
                       onClick={handleClickAudioPlay}
                     >
-                      <Icon name={isAudioPlay ? "play" : "pause"} size={26} />
+                      <Icon name={isAudioPlay ? "pause" : "play"} size={26} />
                     </div>
                     <div className="main-introduce-right-bubble-1-player-icon">
                       <Icon name="next" />
                     </div>
                   </div>
                 }
-              />
-              <Bubble
+              /> */}
+              {/* <Bubble
                 width={120}
                 height={30}
                 borderRadius={[16]}
@@ -260,83 +259,94 @@ const Home = () => {
                     </div>
                   </div>
                 }
-              />
+              /> */}
+              {/* 
+              <div
+                className="main-introduce-right-bubble-3-container animate__animated animate__fadeInDown animate__delay-2s"
+                onClick={scrollToArticle}
+              >
+                <Bubble
+                  width={220}
+                  height={50}
+                  borderRadius={[28]}
+                  backgroundColor="var(--theme-color)"
+                  bubbleClass="main-introduce-right-bubble-3"
+                  slot={
+                    <div className="main-introduce-right-bubble-3-content ">
+                      近期笔记<span> ▶ </span>
+                    </div>
+                  }
+                />
+              </div> */}
 
-              <Bubble
+              {/* <Bubble
                 width={220}
-                height={50}
-                borderRadius={[28]}
-                backgroundColor="var(--theme-color)"
-                bubbleClass="main-introduce-right-bubble-3 animate__animated animate__fadeInDown animate__delay-2s"
-                slot={
-                  <div className="main-introduce-right-bubble-3-content ">
-                    近期笔记<span> ▶ </span>
-                  </div>
-                }
-              />
-
-              <Bubble
-                width={120}
-                height={25}
-                borderRadius={[13]}
+                borderRadius={[25, 25, 25, 2]}
                 backgroundColor="var(--theme-sub-color)"
-                bubbleClass="main-introduce-right-bubble-4 animate__animated animate__fadeInUp animate__delay-1s"
-                slot={<span>@Romy Zhang</span>}
-              />
-              <Bubble
-                width={260}
-                height={140}
-                borderRadius={[25, 2, 25, 25]}
                 bubbleClass="main-introduce-right-bubble-5 animate__animated animate__fadeInUp animate__delay-2s"
                 slot={
                   <>
-                    <p>hello，我是 Romy Zhang</p>
-                    <br />
-                    <div>
-                      这里是我的个人空间，目前我在这里分享一些自己的学习笔记和心得。接下来我会继续开发更多丰富的功能，玩得开心💜
-                    </div>
+                    <p>@ AI-Romi</p>
+                    <div>擅长前端问题，很高兴见到你</div>
                   </>
                 }
-              />
-              <Bubble
-                width={200}
-                height={200}
-                borderRadius={[25]}
-                backgroundColor="var(--theme-sub-color)"
-                bubbleClass="main-introduce-right-bubble-6 animate__animated animate__zoomIn animate__delay-1s"
-                slot={
-                  <div className="main-introduce-right-bubble-6-content">
-                    <img src="/static/img/AI.jpg" alt="ai avatar" />
-                    <div className="main-introduce-right-bubble-6-content-name">
-                      我是 <span>AI Romi</span>,
-                    </div>
-                    <div className="main-introduce-right-bubble-6-content-description">
-                      擅长前端问题，很高兴见到你！
-                    </div>
+              /> */}
 
+              <div className="main-introduce-right-img-wrap animate__animated animate__lightSpeedInRight">
+                <div className="main-introduce-right-img"></div>
+                <Bubble
+                  width={110}
+                  height={25}
+                  borderRadius={[13]}
+                  backgroundColor="var(--theme-sub-color)"
+                  bubbleClass="main-introduce-right-bubble-4 animate__animated animate__fadeInUp "
+                  slot={<span>@Romy Zhang</span>}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="main-ai" onClick={showModal}>
+            <Bubble
+              width={200}
+              borderRadius={[25, 25, 3, 25]}
+              backgroundColor="var(--theme-sub-color)"
+              bubbleClass="main-introduce-right-bubble-6 animate__animated animate__fadeInUp animate__delay-1s"
+              slot={
+                <div className="main-introduce-right-bubble-6-content">
+                  <div className="main-introduce-right-bubble-6-content-avatar">
+                    <img src="/static/img/AI.jpg" alt="ai avatar" />
+                    <div className="main-introduce-right-bubble-6-content-avatar-lianyi-1"></div>
+                    <div className="main-introduce-right-bubble-6-content-avatar-lianyi-2"></div>
+                  </div>
+
+                  <div className="main-introduce-right-bubble-6-content-name">
+                    我是 <span>AI Romi</span>,
+                  </div>
+                  <div className="main-introduce-right-bubble-6-content-description">
+                    擅长前端问题，点击进入聊天！
+                  </div>
+                  {/* <div
+                    className="main-introduce-right-bubble-7-container"
+                  >
                     <Bubble
-                      width={125}
-                      height={55}
+                      width={80}
+                      height={35}
                       borderRadius={[25]}
                       backgroundColor="var(--theme-color)"
                       slot={
-                        <div onClick={showModal}>
-                          开始对话<span> ▶ </span>
+                        <div>
+                          Chat<span> ▶ </span>
                         </div>
                       }
                       bubbleClass="main-introduce-right-bubble-7"
                     />
-                  </div>
-                }
-              />
-
-              <div className="main-introduce-right-img-wrap animate__animated animate__lightSpeedInRight">
-                <div className="main-introduce-right-img"></div>
-                {/* <div className="img-border-1"></div>
-                <div className="img-border-2"></div> */}
-              </div>
-            </div>
+                  </div> */}
+                </div>
+              }
+            />
           </div>
+
           <div className="main-guide" onClick={() => scrollToArticle()}>
             <div className="main-guide-sentence">
               种一棵树最好的时机是十年前，其次是现在
@@ -352,7 +362,7 @@ const Home = () => {
       {/* AI Chat Modal */}
       <Modal
         className="chat-modal"
-        title="Romy AI"
+        title="AI Romi"
         open={isModalOpen}
         onCancel={handleCancel}
         centered
