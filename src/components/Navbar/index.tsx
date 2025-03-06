@@ -59,12 +59,12 @@ const Navbar = () => {
             文章列表
           </Link>
         </div>
-        <div className="layout-navbar-light">
+        {/* <div className="layout-navbar-light">
           <LightSwitch
             value={isLightOn}
             onChange={(value: boolean) => setIsLightOn(value)}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

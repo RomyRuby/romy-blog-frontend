@@ -5,8 +5,14 @@
   padding-top: 60px;
   .article-wrap {
     position: relative;
-    width: 920px;
+    width: 80%;
     margin: 120px auto;
+    max-width: 860px;
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 80px;
+    }
   }
 }
 

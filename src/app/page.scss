@@ -105,11 +105,37 @@
           .main-introduce-right-img {
             position: relative;
             z-index: 10;
-            width: 400px;
-            height: 400px;
-            border-radius: 35px;
+            width: 300px;
+            height: 300px;
+            border-radius: 150px;
             background-size: 100% 100%;
             background-image: url("../../static/img/avatar.jpg");
+          }
+          .img-border-1 {
+            position: absolute;
+            z-index: 8;
+            width: 340px;
+            height: 340px;
+            top: 150px;
+            left: 150px;
+            transform: translate(-50%, -50%);
+            background: var(--circle-color);
+            opacity: 0.1;
+            border-radius: 50%;
+            animation: lianyi-1 2.5s linear infinite;
+          }
+          .img-border-2 {
+            position: absolute;
+            z-index: 7;
+            width: 380px;
+            height: 380px;
+            top: 150px;
+            left: 150px;
+            transform: translate(-50%, -50%);
+            background: var(--circle-color);
+            opacity: 0.04;
+            border-radius: 50%;
+            animation: lianyi-2 2.5s linear infinite;
           }
         }
       }
@@ -122,6 +148,7 @@
         right: 16px;
         bottom: 16px;
         padding: 16px;
+        animation: shakeALittle 2s infinite;
         &:hover {
           &::after {
             content: "";
@@ -154,6 +181,7 @@
 
           .main-ai-bubble-content-avatar {
             position: relative;
+
             img {
               position: relative;
               z-index: 102;
@@ -164,10 +192,9 @@
               margin: 0 auto;
             }
 
-            .main-ai-bubble-content-avatar-lianyi-1 {
+            .main-ai-bubble-content-avatar-wave-1 {
               position: absolute;
               top: 0;
-              content: "";
               width: 45px;
               height: 45px;
               border-radius: 23px;
@@ -177,12 +204,11 @@
                 rgba(15, 105, 239, 0.62) 68%,
                 rgba(15, 105, 239, 0.04) 100%
               );
-              animation: lianyi-1 2s infinite;
+              animation: wave-1 2s infinite;
             }
-            .main-ai-bubble-content-avatar-lianyi-2 {
+            .main-ai-bubble-content-avatar-wave-2 {
               position: absolute;
               top: 0;
-              content: "";
               width: 45px;
               height: 45px;
               border-radius: 23px;
@@ -192,50 +218,7 @@
                 rgba(15, 105, 239, 0.62) 68%,
                 rgba(15, 105, 239, 0.04) 100%
               );
-              animation: lianyi-2 2s infinite;
-            }
-            @keyframes lianyi-1 {
-              0% {
-                transform: scale(0.9);
-                opacity: 0.08;
-              }
-
-              50% {
-                transform: scale(1.3);
-                opacity: 0.14;
-              }
-
-              83% {
-                transform: scale(1.4);
-                opacity: 0.08;
-              }
-
-              100% {
-                transform: scale(1.5);
-                opacity: 0;
-              }
-            }
-
-            @keyframes lianyi-2 {
-              0% {
-                transform: scale(1);
-                opacity: 0.01;
-              }
-
-              50% {
-                transform: scale(1.5);
-                opacity: 0.06;
-              }
-
-              80% {
-                transform: scale(1.6);
-                opacity: 0.03;
-              }
-
-              100% {
-                transform: scale(1.7);
-                opacity: 0;
-              }
+              animation: wave-2 2s infinite;
             }
           }
 
@@ -488,6 +471,28 @@
   }
 }
 
+@keyframes shakeALittle {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(0, -4px);
+  }
+
+  50% {
+    transform: translate(0, 0);
+  }
+
+  75% {
+    transform: translate(0, -4px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 @keyframes up-down {
   0% {
     transform: translateY(0);
@@ -501,6 +506,89 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes lianyi-1 {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.08;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.14;
+  }
+  83% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.08;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes lianyi-2 {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.01;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.06;
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.03;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes wave-1 {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.08;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 0.14;
+  }
+
+  83% {
+    transform: scale(1.4);
+    opacity: 0.08;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes wave-2 {
+  0% {
+    transform: scale(1);
+    opacity: 0.01;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.06;
+  }
+
+  80% {
+    transform: scale(1.6);
+    opacity: 0.03;
+  }
+
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
   }
 }
 

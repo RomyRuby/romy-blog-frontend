@@ -23,6 +23,7 @@ const Page = ({ params }: { params: params }) => {
     <>
       <div className="article-page">
         <div className="article-wrap">
+          <h1>{article?.title}</h1>
           <Markdown content={article?.content!} />
         </div>
       </div>

@@ -142,24 +142,26 @@ const Home = () => {
 
   // 文章组件
   const MainArticles = useMemo(() => {
-    const List = articleList.map((item: Article) => {
-      return (
-        <Fragment key={item._id}>
-          <div className="main-article-item">
-            <div className="main-article-item-icon">
-              <div className="main-article-item-icon-circle"></div>
-              <div className="main-article-item-icon-line"></div>
-            </div>
-            <div className="main-article-item-title">
-              <Link href={"/articles/" + item._id}>{item.title}</Link>
-            </div>
+    const List = articleList.map((item: Article, index: number) => {
+      if (index < 15) {
+        return (
+          <Fragment key={item._id}>
+            <div className="main-article-item">
+              <div className="main-article-item-icon">
+                <div className="main-article-item-icon-circle"></div>
+                <div className="main-article-item-icon-line"></div>
+              </div>
+              <div className="main-article-item-title">
+                <Link href={"/articles/" + item._id}>{item.title}</Link>
+              </div>
 
-            <div className="main-article-item-date">
-              {moment(item.updated).fromNow()}
+              <div className="main-article-item-date">
+                {moment(item.updated).fromNow()}
+              </div>
             </div>
-          </div>
-        </Fragment>
-      );
+          </Fragment>
+        );
+      }
     });
     return (
       <>
@@ -224,7 +226,9 @@ const Home = () => {
             {/* 右边的大头像 */}
             <div className="main-introduce-right">
               <div className="main-introduce-right-img-wrap animate__animated animate__lightSpeedInRight">
-                <div className="main-introduce-right-img"></div>x
+                <div className="main-introduce-right-img"></div>
+                <div className="img-border-1"></div>
+                <div className="img-border-2"></div>
               </div>
             </div>
           </div>
@@ -239,8 +243,8 @@ const Home = () => {
                 <div className="main-ai-bubble-content">
                   <div className="main-ai-bubble-content-avatar">
                     <img src="/static/img/AI.jpg" alt="ai avatar" />
-                    <div className="main-ai-bubble-content-avatar-lianyi-1"></div>
-                    <div className="main-ai-bubble-content-avatar-lianyi-2"></div>
+                    {/* <div className="main-ai-bubble-content-avatar-wave-1"></div>
+                    <div className="main-ai-bubble-content-avatar-wave-2"></div> */}
                   </div>
 
                   <div className="main-ai-bubble-content-name">

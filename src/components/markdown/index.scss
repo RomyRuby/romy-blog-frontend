@@ -1,82 +1,39 @@
-.article-markdown {
+.markdown-custom {
   h2 {
-    display: block;
-    font-size: 28px;
-    height: auto;
-    line-height: 48px;
-    box-sizing: border-box;
-    border-radius: 8px;
+    font-size: 24px;
+    margin-top: 16px;
+    margin-bottom: 16px;
     font-weight: 600;
-    margin: 32px 0 0 0;
   }
   h3 {
-    display: block;
-    font-size: 24px;
-    height: auto;
-    line-height: 48px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    font-weight: 600;
-    margin: 32px 0 0 0;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
   h4 {
-    display: block;
     font-size: 20px;
-    height: auto;
-    line-height: 48px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    font-weight: 600;
-    margin: 32px 0 0 0;
+    font-weight: 400;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
-  p,
+  p {
+    font-size: 16px;
+    line-height: 36px;
+  }
+  ol {
+    list-style-type: auto;
+    margin-left: 3em;
+  }
+  ul {
+    list-style-type: circle;
+    margin-left: 1em;
+  }
   li {
     font-size: 16px;
-    margin: 8px 0;
-    line-height: 28px;
+    line-height: 36px;
   }
-
-  .code-container {
-    margin: 32px 0;
-    border-radius: 8px;
-    background-color: var(--markdown-code-body-color);
-    .code-container-header {
-      height: 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 16px;
-      background-color: var(--markdown-code-header-color);
-      border-radius: 8px;
-
-      .copy-button {
-        width: 24px;
-        height: 24px;
-        border-radius: 4px;
-        color: var(--font-sub-color);
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &:hover {
-          transition: all 0.2s;
-          background-color: var(--background-sub-color);
-        }
-      }
-    }
-    .p-4 {
-      letter-spacing: 1px;
-    }
-  }
-  .short-code {
-    border-radius: 4px;
-    padding: 2px 8px;
-    background-color: var(--markdown-short-code-background);
-    color: var(--font-sub-color);
-    margin: 0 4px;
-  }
-
-  .hljs-comment {
-    color: var(--font-sub-color);
+  code {
+    margin: 24px 0;
   }
 }
