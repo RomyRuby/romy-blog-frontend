@@ -5,6 +5,7 @@ import Chat from "@/components/Chat";
 import Bubble from "@/components/roro-ui/bubble";
 import { Button, Popover, Modal, message, Tooltip, Divider } from "antd";
 import { useEffect, useMemo, useState, Fragment, useRef } from "react";
+import { MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 import { articles } from "@/api/article";
 import { Article } from "@/types/article";
@@ -12,7 +13,6 @@ import Link from "next/link";
 import moment from "moment";
 import "moment/locale/zh-cn";
 import "./page.scss";
-import { MouseEventHandler } from "react";
 moment.locale("zh-cn");
 
 const Home = () => {
@@ -22,6 +22,7 @@ const Home = () => {
   const [articleList, setArticleList] = useState([]);
   const [cardType, setCardType] = useState("");
   const [isAudioPlay, setIsAudioPlay] = useState(true);
+  const [isAiBubbleShow, setIsAiBubbleShow] = useState(true);
   const mainArticleRef = useRef<null | HTMLDivElement>(null);
   const mainHomeRef = useRef<null | HTMLDivElement>(null);
   const router = useRouter();
@@ -156,7 +157,7 @@ const Home = () => {
               </div>
 
               <div className="main-article-item-date">
-                {moment(item.updated).fromNow()}
+                {moment(item.created).fromNow()}
               </div>
             </div>
           </Fragment>
@@ -216,6 +217,11 @@ const Home = () => {
     setIsAudioPlay(!isAudioPlay);
   };
 
+  const handleCloseAIBubble = (e: MouseEvent) => {
+    e.stopPropagation();
+    setIsAiBubbleShow(false);
+  };
+
   return (
     <>
       <div className="main">
@@ -233,30 +239,38 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="main-ai" onClick={showModal}>
-            <Bubble
-              width={200}
-              borderRadius={[25, 25, 3, 25]}
-              backgroundColor="var(--theme-sub-color)"
-              bubbleClass="main-ai-bubble animate__animated animate__fadeInUp animate__delay-1s"
-              slot={
-                <div className="main-ai-bubble-content">
-                  <div className="main-ai-bubble-content-avatar">
-                    <img src="/static/img/AI.jpg" alt="ai avatar" />
-                    {/* <div className="main-ai-bubble-content-avatar-wave-1"></div>
-                    <div className="main-ai-bubble-content-avatar-wave-2"></div> */}
-                  </div>
+          {isAiBubbleShow && (
+            <div className="main-ai" onClick={showModal}>
+              <Bubble
+                width={200}
+                borderRadius={[25, 25, 3, 25]}
+                backgroundColor="var(--theme-sub-color)"
+                bubbleClass="main-ai-bubble animate__animated animate__fadeInUp animate__delay-1s"
+                slot={
+                  <div className="main-ai-bubble-content">
+                    <div
+                      className="main-ai-bubble-content-close"
+                      onClick={(e) => handleCloseAIBubble(e)}
+                    >
+                      <Icon name="close" size={16} />
+                    </div>
+                    <div className="main-ai-bubble-content-avatar">
+                      <img src="/static/img/AI.jpg" alt="ai avatar" />
+                      <div className="main-ai-bubble-content-avatar-wave-1"></div>
+                      <div className="main-ai-bubble-content-avatar-wave-2"></div>
+                    </div>
 
-                  <div className="main-ai-bubble-content-name">
-                    我是 <span>AI Romi</span>,
+                    <div className="main-ai-bubble-content-name">
+                      我是 <span>AI Romi</span>,
+                    </div>
+                    <div className="main-ai-bubble-content-description">
+                      擅长前端问题，点击进入聊天！
+                    </div>
                   </div>
-                  <div className="main-ai-bubble-content-description">
-                    擅长前端问题，点击进入聊天！
-                  </div>
-                </div>
-              }
-            />
-          </div>
+                }
+              />
+            </div>
+          )}
 
           <div className="main-guide" onClick={() => scrollToArticle()}>
             <div className="main-guide-sentence">

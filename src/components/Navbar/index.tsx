@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import LightSwitch from "../LightSwitch";
 import "./index.scss";
+import path from "path";
+type NumberObject = {
+  [key: string]: number;
+};
 
 const Navbar = () => {
   const [backgroundActive, setBackgroundActive] = useState(false);
@@ -13,10 +17,15 @@ const Navbar = () => {
         : true
       : true
   );
-
   useEffect(() => {
     const scrollComputed = (e: Event) => {
-      if ((e.target as HTMLElement).scrollTop > 120) {
+      const locationMap: NumberObject = {
+        "/": 200,
+        "/articles": 60,
+      };
+      const { pathname } = location;
+      const number = locationMap[pathname] ? locationMap[pathname] : 90;
+      if ((e.target as HTMLElement).scrollTop > number) {
         setBackgroundActive(true);
       } else {
         setBackgroundActive(false);
@@ -59,12 +68,12 @@ const Navbar = () => {
             文章列表
           </Link>
         </div>
-        {/* <div className="layout-navbar-light">
+        <div className="layout-navbar-light">
           <LightSwitch
             value={isLightOn}
             onChange={(value: boolean) => setIsLightOn(value)}
           />
-        </div> */}
+        </div>
       </div>
     </div>
   );

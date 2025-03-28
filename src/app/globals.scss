@@ -5,7 +5,8 @@
   --font-main-color: #2f0e41;
   --font-sub-color: #8c8da9;
   --font-third-color: #8c8da9;
-  --font-hover-color: #ba80e5;
+  --font-hover-color: var(--theme-color);
+  --font-balance-color: #ffffff;
   --font-main-size: 14px;
   --font-background-color: rgb(229, 231, 235);
   --divider-main-color: #e2e3e9;
@@ -17,8 +18,8 @@
     #f1f1f8 50%,
     #f0f1f8 100%
   );
-  --background-sub-color: #ffffffb8;
-  --background-active-color: rgba(86, 103, 241, 0.1);
+  --background-sub-color: rgba(208, 202, 234, 0.2);
+  --background-active-color: rgba(176, 86, 241, 0.1);
   --background-article-color: linear-gradient(
     180deg,
     rgba(86, 103, 241, 0.1) 0%,
@@ -33,9 +34,10 @@
     rgba(49, 15, 239, 0.62) 68%,
     rgba(37, 15, 239, 0.04) 100%
   );
-  --markdown-code-header-color: rgba(86, 103, 241, 0.08);
-  --markdown-code-body-color: rgba(86, 103, 241, 0.04);
-  --markdown-short-code-background: rgba(86, 103, 241, 0.08);
+  --markdown-code-header-color: var(--background-active-color);
+  --markdown-code-body-color: var(--background-sub-color);
+  --markdown-short-code-background: var(--background-active-color);
+  --markdown-chain-color: var(--theme-color);
   --modal-mask-background: #ffffffe6;
   --modal-header-background: #ffffff;
   --modal-close-color: rgba(0, 0, 0, 0.45);
@@ -51,18 +53,21 @@
 
 .dark {
   --theme-color: #c7cdff;
+  --theme-sub-color: #e7d7f7;
+  --theme-white-color: #ffffff;
   --font-main-color: oklch(1 0 0);
   --font-sub-color: oklch(100% 0 0 / 0.6);
   --font-third-color: #ffffff;
   --font-hover-color: var(--theme-color);
+  --font-balance-color: #2f0e41;
   --font-main-size: 14px;
   --font-background-color: rgba(229, 231, 235, 0.4);
   --divider-main-color: #e2e3e9;
   --divider-sub-color: rgba(60, 60, 60, 0.29);
   --divider-third-color: rgba(187, 187, 187, 0.2);
   --background-main-color: #0f1f24;
-  --background-sub-color: rgba(44, 44, 44, 0.6);
-  --background-active-color: rgba(229, 231, 235, 0.1);
+  --background-sub-color: rgba(207, 191, 244, 0.1);
+  --background-active-color: rgba(199, 205, 255, 0.3);
   --background-article-color: #0f1f24;
   --background-hover-color: rgba(195, 177, 255, 0.18);
   --circle-color: linear-gradient(
@@ -71,9 +76,10 @@
     rgba(162, 145, 255, 0.806) 68%,
     rgba(116, 101, 255, 0.936) 100%
   );
-  --markdown-code-header-color: rgba(191, 197, 244, 0.1);
-  --markdown-code-body-color: rgba(191, 197, 244, 0.1);
-  --markdown-short-code-background: rgba(195, 177, 255, 0.4);
+  --markdown-code-header-color: var(--background-active-color);
+  --markdown-code-body-color: var(--background-sub-color);
+  --markdown-short-code-background: var(--background-active-color);
+  --markdown-chain-color: var(--theme-color);
   --modal-mask-background: rgba(79, 93, 99, 0.7);
   --modal-header-background: rgba(0, 0, 0, 0.45);
   --modal-close-color: #ffffff;

@@ -31,7 +31,7 @@ const Articles = () => {
 
           <div className="article-list-item-date">
             <Icon name="time" />
-            <span>{moment(item.updated).format("YYYY年MM月DD日 ")}</span>
+            <span>{moment(item.created).format("YYYY年MM月DD日 ")}</span>
           </div>
         </Link>
       </Fragment>

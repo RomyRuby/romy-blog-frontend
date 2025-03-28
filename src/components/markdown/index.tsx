@@ -15,8 +15,8 @@ const MyMarkdown = ({ content }: { content: string }) => {
           if (match?.length) {
             const id = Math.random().toString(36).substr(2, 9);
             return (
-              <div className="rounded-md border my-6">
-                <div className="flex h-12 items-center justify-between bg-violet-100 px-4 dark:bg-zinc-900">
+              <div className="my-6">
+                <div className="code-container-header  flex h-12 items-center justify-between ">
                   <div className="flex items-center gap-2">
                     <p className="text-sm text-zinc-600 dark:text-zinc-400">
                       {node?.data?.meta}
@@ -25,7 +25,10 @@ const MyMarkdown = ({ content }: { content: string }) => {
                   <CopyButton id={id} />
                 </div>
                 <div className="overflow-x-auto ">
-                  <div id={id} className="p-4 bg-violet-50 text-base leading-7">
+                  <div
+                    id={id}
+                    className="code-container-body p-4  text-base leading-7"
+                  >
                     {children}
                   </div>
                 </div>
@@ -33,10 +36,7 @@ const MyMarkdown = ({ content }: { content: string }) => {
             );
           } else {
             return (
-              <code
-                {...props}
-                className="not-prose rounded bg-gray-100 px-1 dark:bg-zinc-900"
-              >
+              <code {...props} className="not-prose rounded">
                 {children}
               </code>
             );

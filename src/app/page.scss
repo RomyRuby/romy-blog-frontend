@@ -149,28 +149,7 @@
         bottom: 16px;
         padding: 16px;
         animation: shakeALittle 2s infinite;
-        &:hover {
-          &::after {
-            content: "";
-            position: absolute;
-            height: 100%;
-            inset: 20%;
-            top: 0;
-            background: linear-gradient(
-              45deg,
-              rgba(255, 255, 255, 0) 42%,
-              rgba(255, 255, 255, 0.1),
-              rgba(255, 255, 255, 0) 58%
-            );
-            animation: shark-wrap 2s infinite;
-            transform: translateX(-100%);
-          }
-          @keyframes shark-wrap {
-            to {
-              transform: translateX(100%);
-            }
-          }
-        }
+
         .main-ai-bubble-content {
           display: flex;
           flex-direction: column;
@@ -178,6 +157,21 @@
           align-items: center;
           position: relative;
           height: 100%;
+          .main-ai-bubble-content-close {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--font-sub-color);
+            &:hover {
+              background: var(--background-active-color);
+            }
+          }
 
           .main-ai-bubble-content-avatar {
             position: relative;

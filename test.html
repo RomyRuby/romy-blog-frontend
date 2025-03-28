@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+          obj: 目标对象
+          prop: 需要操作的目标对象的属性名
+          descriptor: 描述符
+
+          return value 传入对象
+      */
+      function cb(val) {
+        /* 渲染视图 */
+        console.log("视图更新啦～" + val);
+      }
+
+      // 响应化，将数据变成响应示数据
+      function defineReactive(obj, key, val) {
+        Object.defineProperty(obj, key, {
+          enumerable: true,
+          configurable: true,
+          get: function reactiveGetter() {
+            return val;
+          },
+          set: function reactiveSetter(newVal) {
+            console.log(newVal, val);
+            if (newVal === val) return;
+            cb(val);
+          },
+        });
+      }
+
+      //
+      function observer(value) {
+        if (!value || typeof value !== "object") {
+          return;
+        }
+
+        Object.keys(value).forEach((key) => {
+          defineReactive(value, key, value[key]);
+        });
+      }
+    </script>
+  </body>
+</html>

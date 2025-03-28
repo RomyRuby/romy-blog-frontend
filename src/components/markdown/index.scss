@@ -20,6 +20,7 @@
   p {
     font-size: 16px;
     line-height: 36px;
+    margin: 8px 0;
   }
   ol {
     list-style-type: auto;
@@ -33,7 +34,33 @@
     font-size: 16px;
     line-height: 36px;
   }
+  a {
+    color: var(--markdown-chain-color);
+  }
+  strong {
+    font-weight: 800;
+    margin: 0 4px;
+  }
   code {
     margin: 24px 0;
+    padding: 0 8px;
+    background: var(--markdown-short-code-background);
+  }
+  .code-container-header {
+    background-color: var(--markdown-code-header-color);
+    padding: 0 16px;
+    border-radius: 12px 12px 0 0;
+
+    .copy-button {
+      width: 16px;
+      height: 16px;
+      color: var(--font-main-color);
+    }
+  }
+
+  .code-container-body {
+    background-color: var(--markdown-code-body-color);
+    border-radius: 0 0 12px 12px;
+    padding: 16px;
   }
 }
